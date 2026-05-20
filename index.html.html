@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>MOE Investment & Corporate Services - Unified Portfolio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/fav.ico.png">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=IBM+Plex+Sans:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#92001c",
+                        "surface-container-highest": "#d3e4fe",
+                        "tertiary": "#000f24",
+                        "outline-variant": "#c4c6ce",
+                        "background": "#f8f9ff",
+                        "tertiary-fixed-dim": "#a7c8ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#d5e3ff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#b0c8eb",
+                        "on-primary-fixed-variant": "#314865",
+                        "secondary-fixed-dim": "#ffb3b1",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#0a2540",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary-fixed": "#001c3b",
+                        "on-surface": "#0b1c30",
+                        "surface": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container": "#e5eeff",
+                        "inverse-primary": "#b0c8eb",
+                        "primary": "#000f22",
+                        "primary-fixed": "#d2e4ff",
+                        "inverse-surface": "#213145",
+                        "tertiary-container": "#00244a",
+                        "on-surface-variant": "#43474d",
+                        "on-secondary-fixed": "#410007",
+                        "surface-dim": "#cbdbf5",
+                        "secondary-fixed": "#ffdad8",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#124782",
+                        "on-tertiary-container": "#628ccb",
+                        "secondary": "#b7102a",
+                        "outline": "#74777e",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#db313f",
+                        "on-primary-container": "#768dad",
+                        "surface-tint": "#49607e",
+                        "on-background": "#0b1c30",
+                        "surface-bright": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#001c37"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "xl": "64px",
+                        "base": "4px",
+                        "sm": "16px",
+                        "container-max": "1280px",
+                        "xs": "8px",
+                        "lg": "40px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["IBM Plex Sans"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 20px rgba(0, 15, 34, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+
+    <!-- Unified TopNavBar -->
+    <header class="bg-surface dark:bg-surface docked full-width top-0 sticky z-50 border-b border-outline-variant dark:border-outline flat no shadows transition-all duration-200">
+        <div class="flex justify-between items-center max-w-container-max mx-auto px-lg py-sm">
+            <div class="flex items-center gap-sm">
+                <img alt="MOE Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp_TYuMpe7GfIXNhUiZTC811_7zHRAgZ1vyYN6Axsn-S0olbFzPDBASq9yyUkZAkhm_nd77Ap6Hhxd3CLENd5qVVsjqFPT8iH2Xnf2GlUje0duijgKHXXYwZiQtJznohw0fKovfstzxCbcyX8GYdYhKTcCKzjD-u3HwA2JupKkZvG5Y0e8F4Dtm-j6RAC8TIgmd55rswXUb8CjnNzcuIU_8mppDOIyvNJfQ0f1yLbM4YUuPaFYbq0CHqrUtl61feAz0hNGMS4k">
+            </div>
+            <nav class="hidden md:flex gap-md">
+                <a class="text-on-surface-variant font-label-bold hover:text-secondary transition-colors duration-200 text-label-bold" href="#home">Home</a>
+                <a class="text-on-surface-variant font-label-bold hover:text-secondary transition-colors duration-200 text-label-bold" href="#about">About</a>
+                <a class="text-on-surface-variant font-label-bold hover:text-secondary transition-colors duration-200 text-label-bold" href="#services">Our Services</a>
+                <a class="text-on-surface-variant font-label-bold hover:text-secondary transition-colors duration-200 text-label-bold" href="#contact">Contact</a>
+            </nav>
+            <button class="bg-[#b7102a] text-white px-6 py-[10px] rounded-[0.125rem] font-bold text-sm hover:bg-[#92001c] transition-colors hidden md:block">
+               <a href="#contact"> Invest Now</a>
+            </button>
+            <button class="md:hidden text-on-surface">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- ==================== HOME PAGE SECTION ==================== -->
+        <div id="home" class="scroll-mt-16">
+            <section class="relative bg-surface pt-xl pb-xl md:pt-[120px] md:pb-[120px] overflow-hidden border-b border-outline-variant">
+                <div class="max-w-container-max mx-auto px-lg grid grid-cols-1 md:grid-cols-12 gap-gutter relative z-10">
+                    <div class="md:col-span-7 flex flex-col justify-center">
+                        <h1 class="font-headline-xl text-headline-xl text-primary mb-md">Precision in Investment & Corporate Strategy.</h1>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-[600px]">MOE delivers authoritative, forward-thinking solutions tailored for complex markets. We bridge traditional finance with innovative strategies to unlock sustainable growth and secure corporate legacies.</p>
+                        <div class="flex gap-sm">
+                            <button class="bg-primary text-on-primary px-lg h-[48px] rounded-DEFAULT font-label-bold text-label-bold hover:bg-primary-container transition-colors shadow-[0_20px_40px_-10px_rgba(0,15,34,0.1)]">Book Consultation</button>
+                            <button class="border-2 border-tertiary text-tertiary px-lg h-[48px] rounded-DEFAULT font-label-bold text-label-bold hover:bg-surface-variant transition-colors">Our Approach</button>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 relative mt-xl md:mt-0">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-surface-variant to-surface-container opacity-50 rounded-xl transform rotate-3"></div>
+                        <div class="relative bg-white border border-outline-variant rounded-xl p-sm shadow-[0_20px_40px_-10px_rgba(0,15,34,0.04)] h-[400px] w-full overflow-hidden">
+                            <div class="absolute inset-0 bg-surface-variant/20 backdrop-blur-[2px]">
+                                <img loading="lazy" src="/images/pexels-vi.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-xl max-w-container-max mx-auto px-lg border-b border-outline-variant pb-24">
+                <div class="mb-xl text-center">
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Strategic Capabilities</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Comprehensive solutions for modern enterprises.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[280px]">
+                    <!-- Large Card -->
+                    <div class="md:col-span-8 bg-white border border-outline-variant rounded-xl p-lg flex flex-col justify-between hover:shadow-[0_20px_40px_-10px_rgba(0,15,34,0.04)] transition-shadow group relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-[40%] h-full bg-surface-variant/30 group-hover:scale-105 transition-transform duration-500 rounded-l-full blur-3xl"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-primary-container text-on-primary rounded-full flex items-center justify-center mb-md">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+                            </div>
+                            <h3 class="font-headline-md text-headline-md text-primary mb-sm">Investment Portfolio Management</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant max-w-[400px]">Data-driven asset allocation and risk management designed to optimize returns across global markets with rigorous precision.</p>
+                        </div>
+                        <div class="relative z-10 mt-auto">
+                            <a class="text-secondary font-label-bold text-label-bold flex items-center gap-xs hover:text-secondary-container transition-colors" href="#services">
+                                Explore Strategies <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Featured Card -->
+                    <div class="md:col-span-4 bg-white border border-outline-variant border-t-4 border-t-secondary rounded-xl p-lg flex flex-col hover:shadow-[0_20px_40px_-10px_rgba(0,15,34,0.04)] transition-shadow">
+                        <div class="w-10 h-10 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mb-md">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-primary mb-sm">Corporate Advisory</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-auto">Expert guidance on mergers, acquisitions, and corporate restructuring.</p>
+                        <a class="text-primary font-label-bold text-label-bold flex items-center gap-xs hover:text-primary-container transition-colors mt-md" href="#services">
+                            Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ==================== ABOUT US PAGE SECTION ==================== -->
+        <div id="about" class="scroll-mt-16">
+            <header class="relative w-full bg-surface-container-low border-b border-outline-variant overflow-hidden">
+                <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_oLpJl_XdYjPpiLnsuM4p3avS1L6NHJ0jETBP9SrvFllJswKuGJYLvCdM7UIr3-mRRZNuXw8v7_l5WmeAsyUNrkhQ1tir_i4Ye6ok5VTBI-r8JB3_DdCmadu-mZVeJrdpwd5jS1T9lFIZVe-rKQL4nYQu372tDsAQNUr4DvNjNKUOhQvDkCqrt3UsyNa3UarGeDY3jLz18oAvZMTRs5Ti9OO53X7LrO_CB5IOJMQ6VBbKYzyNJgni0apXE3PaS9_tx3HAs8lm');"></div>
+                <div class="relative z-10 max-w-container-max mx-auto px-sm md:px-lg py-xl md:py-[120px] grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+                    <div class="md:col-span-8 md:col-start-1">
+                        <h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-primary mb-md tracking-tight">
+                            Architecting the future of corporate strategy and investment.
+                        </h1>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-lg">
+                            At MOE, we merge rigorous financial discipline with innovative structural thinking. We are a premier firm dedicated to delivering precise, high-performance solutions for global enterprises.
+                        </p>
+                        <div class="flex gap-sm">
+                            <button class="bg-primary text-on-primary font-label-bold text-label-bold px-md h-[48px] rounded flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm">
+                                Our Mission
+                            </button>
+                            <button class="bg-transparent border-2 border-tertiary text-tertiary font-label-bold text-label-bold px-md h-[48px] rounded flex items-center justify-center hover:bg-surface-container transition-colors">
+                                View Leadership
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="max-w-container-max mx-auto px-sm md:px-lg py-xl">
+                <div class="mb-lg md:mb-xl">
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Core Principles</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+                        Our methodology is built on a foundation of absolute precision and unwavering authority in the financial sector.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-md md:gap-gutter auto-rows-[minmax(280px,auto)]">
+                    <!-- Large Focus Card -->
+                    <div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-lg p-lg flex flex-col justify-between group hover:shadow-[0_20px_40px_rgba(0,15,34,0.04)] transition-shadow duration-300">
+                        <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary mb-md">
+                            <span class="material-symbols-outlined text-[24px]" data-icon="account_balance">account_balance</span>
+                        </div>
+                        <div>
+                            <h3 class="font-headline-md text-headline-md text-primary mb-sm">Institutional Authority</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                We operate with the weight and rigor of legacy financial institutions, yet execute with the agility of a modern strategic consultancy. Our counsel is trusted by top-tier corporate entities worldwide to navigate complex market environments.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Secondary Card 1 -->
+                    <div class="md:col-span-4 bg-primary text-on-primary rounded-lg p-lg flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary rounded-full opacity-10"></div>
+                        <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary mb-md relative z-10">
+                            <span class="material-symbols-outlined text-[24px]" data-icon="insights">insights</span>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-headline-md text-headline-md text-on-primary mb-sm">Precision Analytics</h3>
+                            <p class="font-body-md text-body-md text-primary-fixed-dim">
+                                Data-driven decision making underscores every strategic recommendation and investment thesis we develop.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leadership Team Sub-section -->
+            <section class="bg-surface-container-low border-y border-outline-variant py-xl">
+                <div class="max-w-container-max mx-auto px-sm md:px-lg">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md">
+                        <div class="max-w-2xl">
+                            <h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Executive Leadership</h2>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Our leadership team brings decades of combined experience from premier global financial institutions and strategic consultancies.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-md md:gap-gutter">
+                        <!-- Leader 1 -->
+                        <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden group">
+                            <div class="aspect-[4/5] relative overflow-hidden bg-surface-variant">
+                                <img alt="Marcus Vance Portrait" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="images/583964.jpg">
+                                <div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-primary/90 to-transparent">
+                                    <h4 class="font-headline-md text-headline-md text-on-primary">Marcus Vance</h4>
+                                    <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">Chief Executive Officer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 2 -->
+                        <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden group">
+                            <div class="aspect-[4/5] relative overflow-hidden bg-surface-variant">
+                                <img alt="Elena Rostova Portrait" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="images/6693628.jpg">
+                                <div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-primary/90 to-transparent">
+                                    <h4 class="font-headline-md text-headline-md text-on-primary">Elena Rostova</h4>
+                                    <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">Managing Partner, Advisory</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 3 -->
+                        <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden group">
+                            <div class="aspect-[4/5] relative overflow-hidden bg-surface-variant">
+                                <img alt="David Chen Portrait" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="/images/miroshnichenk.jpg">
+                                <div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-primary/90 to-transparent">
+                                    <h4 class="font-headline-md text-headline-md text-on-primary">David Chen</h4>
+                                    <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">Head of Investment Strategy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ==================== OUR SERVICES PAGE SECTION ==================== -->
+        <div id="services" class="scroll-mt-16">
+            <section class="py-xl px-lg md:px-xl max-w-container-max mx-auto relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-surface-container to-background -z-10 rounded-xl opacity-50"></div>
+                <div class="text-center max-w-3xl mx-auto space-y-md">
+                    <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary">Comprehensive Financial Solutions</h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">Expertise tailored to elevate your corporate strategy and investment portfolio. We navigate complex financial landscapes with precision and foresight.</p>
+                </div>
+            </section>
+
+            <section class="py-xl px-lg md:px-xl max-w-container-max mx-auto">
+                <div class="mb-lg">
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary border-b-2 border-secondary inline-block pb-xs">Investment Services</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-sm max-w-2xl">Strategic capital deployment aimed at sustainable growth and robust returns.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                    <!-- Large Featured Card -->
+                    <div class="md:col-span-8 bg-surface rounded border-t-4 border-t-secondary border-x border-b border-outline-variant p-md soft-shadow hover:shadow-lg transition-shadow duration-300 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-10 transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4Oj7spqPQUCQhXv6WfyTBlPVpUiU6zwLO6Q07t7jvfPj-SOPkjhw0NJtu02OCoYFWQdAz2nuGgdC5ulW4vZyssuU99RsdYV6E7uWHwrhR7oqq7hI91D7IpvmuXdXzkP8n7z6byZScmf2Yxm7eLCu1UX4V5gow3cC2x_U4Du4JOG8RiCPdYqMYmv-fOvPM9XeqWxMmhUDJM0GV3pwT2Ua4LvH-dZaHPvenLhzIc8YGmOP7xpCWZvH7JysjNKAILW159-kyyhVi')"></div>
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div>
+                                <span class="material-symbols-outlined text-[40px] text-primary mb-sm block" data-weight="fill">trending_up</span>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-xs">Portfolio Management</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant max-w-md">Active, data-driven management of diversified portfolios across global equities, fixed income, and alternative assets. We prioritize risk-adjusted returns tailored to your specific investment horizon.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Secondary Cards -->
+                    <div class="md:col-span-4 flex flex-col gap-gutter">
+                        <div class="flex-1 bg-surface rounded border border-outline-variant p-md hover:soft-shadow transition-shadow duration-300">
+                            <span class="material-symbols-outlined text-[32px] text-tertiary-container mb-sm block">real_estate_agent</span>
+                            <h3 class="font-headline-md text-[20px] font-semibold text-primary mb-xs">Real Estate Assets</h3>
+                            <p class="font-body-md text-[14px] text-on-surface-variant">Strategic acquisition and management of high-yield commercial properties.</p>
+                        </div>
+                        <div class="flex-1 bg-surface rounded border border-outline-variant p-md hover:soft-shadow transition-shadow duration-300">
+                            <span class="material-symbols-outlined text-[32px] text-tertiary-container mb-sm block">account_balance</span>
+                            <h3 class="font-headline-md text-[20px] font-semibold text-primary mb-xs">Private Equity</h3>
+                            <p class="font-body-md text-[14px] text-on-surface-variant">Direct investments in high-growth potential private companies and buyouts.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advisory Services Sub-section -->
+            <section class="py-xl px-lg md:px-xl relative overflow-hidden bg-primary text-on-primary">
+                <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_oLpJl_XdYjPpiLnsuM4p3avS1L6NHJ0jETBP9SrvFllJswKuGJYLvCdM7UIr3-mRRZNuXw8v7_l5WmeAsyUNrkhQ1tir_i4Ye6ok5VTBI-r8JB3_DdCmadu-mZVeJrdpwd5jS1T9lFIZVe-rKQL4nYQu372tDsAQNUr4DvNjNKUOhQvDkCqrt3UsyNa3UarGeDY3jLz18oAvZMTRs5Ti9OO53X7LrO_CB5IOJMQ6VBbKYzyNJgni0apXE3PaS9_tx3HAs8lm')"></div>
+                <div class="max-w-container-max mx-auto relative z-10">
+                    <div class="mb-lg">
+                        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg border-b-2 border-secondary inline-block pb-xs">Advisory</h2>
+                        <p class="font-body-md text-body-md text-primary-fixed-dim mt-sm max-w-2xl">Insightful guidance to navigate complex M&A, restructuring, and strategic planning.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                        <div class="glass-panel p-md rounded flex flex-col h-full bg-surface/10 text-on-primary border-outline-variant/30 backdrop-blur-md">
+                            <div class="bg-primary/50 w-[48px] h-[48px] rounded flex items-center justify-center mb-md border border-outline-variant/20">
+                                <span class="material-symbols-outlined text-[24px]">handshake</span>
+                            </div>
+                            <h3 class="font-headline-md text-[20px] font-semibold mb-sm">Mergers & Acquisitions</h3>
+                            <p class="font-body-md text-[14px] text-primary-fixed-dim flex-grow">End-to-end execution of complex transactions, from target identification and valuation to negotiation and post-merger integration.</p>
+                        </div>
+                        <div class="glass-panel p-md rounded flex flex-col h-full bg-surface/10 text-on-primary border-outline-variant/30 backdrop-blur-md">
+                            <div class="bg-primary/50 w-[48px] h-[48px] rounded flex items-center justify-center mb-md border border-outline-variant/20">
+                                <span class="material-symbols-outlined text-[24px]">troubleshoot</span>
+                            </div>
+                            <h3 class="font-headline-md text-[20px] font-semibold mb-sm">Financial Restructuring</h3>
+                            <p class="font-body-md text-[14px] text-primary-fixed-dim flex-grow">Strategic advisory for distressed situations, optimizing capital structures to restore stability and maximize stakeholder value.</p>
+                        </div>
+                        <div class="glass-panel p-md rounded flex flex-col h-full bg-surface/10 text-on-primary border-outline-variant/30 backdrop-blur-md">
+                            <div class="bg-primary/50 w-[48px] h-[48px] rounded flex items-center justify-center mb-md border border-outline-variant/20">
+                                <span class="material-symbols-outlined text-[24px]">lightbulb</span>
+                            </div>
+                            <h3 class="font-headline-md text-[20px] font-semibold mb-sm">Strategic Consulting</h3>
+                            <p class="font-body-md text-[14px] text-primary-fixed-dim flex-grow">Data-driven insights to refine corporate strategy, optimize operations, and identify new avenues for competitive advantage.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ==================== CONTACT PAGE SECTION ==================== -->
+        <div id="contact" class="scroll-mt-16">
+            <section class="max-w-container-max mx-auto px-lg pt-xl pb-md">
+                <h1 class="font-headline-xl text-headline-xl text-primary mb-xs">Get in Touch</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Whether you are exploring investment opportunities, seeking corporate advisory, or require specialized financial services, our team is ready to assist you.
+                </p>
+            </section>
+
+            <section class="max-w-container-max mx-auto px-lg pb-xl grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+                <!-- Contact Form -->
+                <div class="lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-lg p-lg shadow-sm">
+                    <h2 class="font-headline-md text-headline-md text-primary border-b border-outline-variant pb-xs mb-md">Professional Inquiry</h2>
+                    <form class="space-y-md">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                            <div class="flex flex-col">
+                                <label class="font-label-bold text-label-bold text-on-surface mb-xs uppercase" for="fullName">Full Name</label>
+                                <input class="bg-surface-bright border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-sm py-xs font-body-md text-body-md transition-colors" id="fullName" placeholder="Jane Doe" type="text">
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="font-label-bold text-label-bold text-on-surface mb-xs uppercase" for="email">Corporate Email</label>
+                                <input class="bg-surface-bright border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-sm py-xs font-body-md text-body-md transition-colors" id="email" placeholder="jane.doe@company.com" type="email">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                            <div class="flex flex-col">
+                                <label class="font-label-bold text-label-bold text-on-surface mb-xs uppercase" for="company">Company / Organization</label>
+                                <input class="bg-surface-bright border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-sm py-xs font-body-md text-body-md transition-colors" id="company" placeholder="Acme Corp" type="text">
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="font-label-bold text-label-bold text-on-surface mb-xs uppercase" for="inquiryType">Area of Interest</label>
+                                <select class="bg-surface-bright border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-sm py-xs font-body-md text-body-md text-on-surface-variant transition-colors appearance-none" id="inquiryType">
+                                    <option>Investment Opportunities</option>
+                                    <option>Corporate Advisory</option>
+                                    <option>Wealth Management</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="font-label-bold text-label-bold text-on-surface mb-xs uppercase" for="message">Detailed Message</label>
+                            <textarea class="bg-surface-bright border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-sm py-xs font-body-md text-body-md transition-colors resize-none" id="message" placeholder="Please provide details regarding your inquiry..." rows="4"></textarea>
+                        </div>
+                        <div class="pt-sm flex justify-end">
+                            <button class="bg-secondary text-on-secondary font-label-bold text-label-bold px-lg py-xs h-[48px] rounded hover:bg-secondary-container transition-colors shadow-md flex items-center gap-xs" type="submit">
+                                Submit Inquiry
+                                <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Direct Contact Sidebar -->
+                <div class="lg:col-span-4 flex flex-col gap-md">
+                    <div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md shadow-sm">
+                        <h3 class="font-headline-md text-headline-md text-primary mb-sm">Direct Contact</h3>
+                        <ul class="space-y-sm">
+                            <li class="flex items-start gap-sm">
+                                <span class="material-symbols-outlined text-primary mt-1" data-icon="mail" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mail</span>
+                                <div>
+                                    <p class="font-label-bold text-label-bold text-on-surface-variant uppercase">Investor Relations</p>
+                                    <a class="font-body-md text-body-md text-primary hover:text-secondary transition-colors" href="mailto:invest@moe.com">invest@moe.com</a>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-sm">
+                                <span class="material-symbols-outlined text-primary mt-1" data-icon="call" data-weight="fill" style="font-variation-settings: 'FILL' 1;">call</span>
+                                <div>
+                                    <p class="font-label-bold text-label-bold text-on-surface-variant uppercase">Global Headquarters</p>
+                                    <p class="font-body-md text-body-md text-primary">+1 (555) 019-8372</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-surface-container-lowest border border-outline-variant border-t-4 border-t-secondary rounded-lg overflow-hidden shadow-sm flex flex-col">
+                        <div class="h-32 bg-surface-variant relative">
+                            <div class="absolute inset-0 opacity-20" style="radial-gradient(#0a2540 1px, transparent 1px); background-size: 16px 16px;"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-[32px]" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                            </div>
+                        </div>
+                        <div class="p-md">
+                            <h3 class="font-headline-md text-headline-md text-primary mb-xs">Main Office</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                MOE Financial Tower<br>
+                                Suite 4500, Financial District<br>
+                                New York, NY 10004
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="bg-tertiary dark:bg-tertiary full-width">
+        <div class="max-w-container-max mx-auto px-lg py-xl flex flex-col md:flex-row justify-between items-start gap-md border-t border-tertiary-container">
+            <div class="flex flex-col gap-sm">
+                <div class="flex items-center gap-sm">
+                    <img alt="MOE Logo" class="h-8 w-auto grayscale brightness-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp_TYuMpe7GfIXNhUiZTC811_7zHRAgZ1vyYN6Axsn-S0olbFzPDBASq9yyUkZAkhm_nd77Ap6Hhxd3CLENd5qVVsjqFPT8iH2Xnf2GlUje0duijgKHXXYwZiQtJznohw0fKovfstzxCbcyX8GYdYhKTcCKzjD-u3HwA2JupKkZvG5Y0e8F4Dtm-j6RAC8TIgmd55rswXUb8CjnNzcuIU_8mppDOIyvNJfQ0f1yLbM4YUuPaFYbq0CHqrUtl61feAz0hNGMS4k">
+                </div>
+                <p class="font-label-sm text-label-sm text-on-tertiary-fixed-variant">
+                    © 2024 MOE Investment & Corporate Services. All rights reserved.
+                </p>
+            </div>
+            <nav class="flex flex-wrap gap-md items-center">
+                <a class="font-label-sm text-label-sm text-on-tertiary-fixed-variant hover:text-tertiary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+                <a class="font-label-sm text-label-sm text-on-tertiary-fixed-variant hover:text-tertiary-fixed-dim transition-colors" href="#">Terms of Service</a>
+                <a class="font-label-sm text-label-sm text-on-tertiary-fixed-variant hover:text-tertiary-fixed-dim transition-colors" href="#">Financial Disclosures</a>
+                <a class="font-label-sm text-label-sm text-on-tertiary-fixed-variant hover:text-tertiary-fixed-dim transition-colors" href="#">LinkedIn</a>
+                <a class="font-label-sm text-label-sm text-on-tertiary-fixed-variant hover:text-tertiary-fixed-dim transition-colors" href="#">Contact Support</a>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>
